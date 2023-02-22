@@ -13,3 +13,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::button()
+{
+    bddMoby.read();
+}

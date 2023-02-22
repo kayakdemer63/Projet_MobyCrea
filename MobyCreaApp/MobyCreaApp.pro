@@ -24,6 +24,7 @@ HEADERS += \
     moteurs.h
 
 FORMS += \
+    mainwindow.ui \
     mainwindow.ui
 
 # Default rules for deployment.

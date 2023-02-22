@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "bdd.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +18,9 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    BDD bddMoby;
+
+private slots:
+    void button();
 };
 #endif // MAINWINDOW_H
