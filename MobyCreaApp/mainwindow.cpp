@@ -13,7 +13,14 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::button()
+void MainWindow::RequestButton()
 {
-    bddMoby.read();
+    qDebug() << ui->Request->toPlainText();
+    bddMoby.executRequest(ui->Request->toPlainText());
+}
+
+void MainWindow::ipChange()
+{
+    qDebug() << ui->adresseIP->toPlainText();
+    bddMoby.newIP(ui->adresseIP->toPlainText());
 }

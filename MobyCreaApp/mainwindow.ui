@@ -6,25 +6,77 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>211</width>
-    <height>127</height>
+    <width>727</width>
+    <height>488</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="RequestButton">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>10</y>
-      <width>171</width>
-      <height>71</height>
+      <x>10</x>
+      <y>50</y>
+      <width>121</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Send Request</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="Request">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>50</y>
+      <width>521</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="plainText">
+     <string>SELECT * FROM test</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="adresseIP">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>10</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="plainText">
+     <string>172.21.28.26</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelRequete">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>60</y>
+      <width>49</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Requete :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelIP">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>61</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Adresse IP :</string>
     </property>
    </widget>
   </widget>
@@ -33,7 +85,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>211</width>
+     <width>727</width>
      <height>21</height>
     </rect>
    </property>
@@ -43,14 +95,14 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>RequestButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>button()</slot>
+   <slot>RequestButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>158</x>
-     <y>78</y>
+     <x>130</x>
+     <y>91</y>
     </hint>
     <hint type="destinationlabel">
      <x>166</x>
@@ -58,8 +110,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>adresseIP</sender>
+   <signal>textChanged()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ipChange()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>181</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>204</x>
+     <y>41</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
-  <slot>button()</slot>
+  <slot>RequestButton()</slot>
+  <slot>ipChange()</slot>
  </slots>
 </ui>

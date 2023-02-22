@@ -17,8 +17,13 @@ public:
      *  @brief Déclaration du Constructor.
      */
 
-    void read();
-    /** @public @fn read()
+    void executRequest(QString);
+    /** @public @fn executRequest(QString)
+     *  @brief Déclaration de la fonction.
+     */
+
+    void newIP(QString);
+    /** @public @fn newIP(QString)
      *  @brief Déclaration de la fonction.
      */
 
@@ -32,7 +37,6 @@ private:
      *  @endcode
      */
 
-    //QString table_test = "test";
 };
 
 #endif // BDD_H

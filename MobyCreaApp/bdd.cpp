@@ -16,14 +16,14 @@ BDD::BDD()
     bddMobycrea.setDatabaseName("mobycrea"); // Nom de la base
 }
 
-void BDD::read()
+void BDD::executRequest(QString request)
 {
     if(bddMobycrea.open()) {
         qDebug() << "Ok - ouverture de la base de donnée";
 
         // Exécution d'une requête
         QSqlQuery requete;
-        if(requete.exec("SELECT * FROM test")) {
+        if(requete.exec(request)) {
             qDebug() << "Ok - requete";
 
             // Boucle qui permet de parcourir les enregistrements renvoyés par la requête
@@ -45,4 +45,9 @@ void BDD::read()
         qDebug() << "Echec d'ouverture de la base de donnée";
         qDebug() << bddMobycrea.lastError();
     }
+}
+
+void BDD::newIP(QString ip)
+{
+    bddMobycrea.setHostName(ip); // @ip serveur MySQL
 }

@@ -21,6 +21,7 @@ private:
     BDD bddMoby;
 
 private slots:
-    void button();
+    void RequestButton();
+    void ipChange();
 };
 #endif // MAINWINDOW_H
