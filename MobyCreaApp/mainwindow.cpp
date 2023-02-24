@@ -1,3 +1,8 @@
+/// @file mainwindow.cpp
+/// @author Louan DESHAYES
+/// @version 1.1
+/// @class MainWindow
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -23,4 +28,9 @@ void MainWindow::ipChange()
 {
     qDebug() << ui->adresseIP->toPlainText();
     bddMoby.newIP(ui->adresseIP->toPlainText());
+}
+
+void MainWindow::ConnectButton()
+{
+    mobycrea.testco();
 }

@@ -9,7 +9,7 @@
 #include <QtSql>            /// @include <QtSql
 
 
-class BDD                   /// @brief Définition de la classe BDD.
+class BDD
 {
 public:
     BDD();
@@ -31,10 +31,6 @@ private:
     QSqlDatabase bddMobycrea;
     /** @private @var QSqlDatabase bddMobycrea
      *  @brief Déclaration de l'Attribut.
-     *  @code{.cpp}
-     *
-
-     *  @endcode
      */
 
 };

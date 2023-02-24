@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>727</width>
-    <height>488</height>
+    <width>722</width>
+    <height>132</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,23 +17,23 @@
    <widget class="QPushButton" name="RequestButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>120</x>
       <y>50</y>
-      <width>121</width>
-      <height>61</height>
+      <width>101</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Send Request</string>
+     <string>Envoyer Requete</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="Request">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>50</y>
-      <width>521</width>
-      <height>61</height>
+      <x>230</x>
+      <y>10</y>
+      <width>481</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="plainText">
@@ -45,7 +45,7 @@
      <rect>
       <x>70</x>
       <y>10</y>
-      <width>121</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
@@ -56,8 +56,8 @@
    <widget class="QLabel" name="labelRequete">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>60</y>
+      <x>180</x>
+      <y>10</y>
       <width>49</width>
       <height>41</height>
      </rect>
@@ -79,13 +79,26 @@
      <string>Adresse IP :</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="testCo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Test Connection</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>727</width>
+     <width>722</width>
      <height>21</height>
     </rect>
    </property>
@@ -101,12 +114,12 @@
    <slot>RequestButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>130</x>
-     <y>91</y>
+     <x>151</x>
+     <y>86</y>
     </hint>
     <hint type="destinationlabel">
-     <x>166</x>
-     <y>106</y>
+     <x>151</x>
+     <y>105</y>
     </hint>
    </hints>
   </connection>
@@ -117,12 +130,28 @@
    <slot>ipChange()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>181</x>
-     <y>46</y>
+     <x>117</x>
+     <y>38</y>
     </hint>
     <hint type="destinationlabel">
-     <x>204</x>
-     <y>41</y>
+     <x>117</x>
+     <y>67</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>testCo</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ConnectButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>59</x>
+     <y>103</y>
     </hint>
    </hints>
   </connection>
@@ -130,5 +159,6 @@
  <slots>
   <slot>RequestButton()</slot>
   <slot>ipChange()</slot>
+  <slot>ConnectButton()</slot>
  </slots>
 </ui>

@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,15 +10,19 @@ CONFIG += c++17
 
 SOURCES += \
     bdd.cpp \
+    butees.cpp \
     main.cpp \
     mainwindow.cpp \
+    mobycrea.cpp \
     moteur_horizontale.cpp \
     moteur_verticale.cpp \
     moteurs.cpp
 
 HEADERS += \
     bdd.h \
+    butees.h \
     mainwindow.h \
+    mobycrea.h \
     moteur_horizontale.h \
     moteur_verticale.h \
     moteurs.h
