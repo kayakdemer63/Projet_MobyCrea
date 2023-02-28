@@ -24,6 +24,8 @@ public:
      *  @brief Déclaration de l'Attribut.
      */
 
+    char MobyData;
+
     void testco();
     /** @public @fn testco()
      *  @brief Déclaration de la fonction.
