@@ -10,22 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     bdd.cpp \
-    butees.cpp \
     main.cpp \
     mainwindow.cpp \
-    mobycrea.cpp \
-    moteur_horizontale.cpp \
-    moteur_verticale.cpp \
-    moteurs.cpp
+    mobycrea.cpp
 
 HEADERS += \
     bdd.h \
-    butees.h \
     mainwindow.h \
-    mobycrea.h \
-    moteur_horizontale.h \
-    moteur_verticale.h \
-    moteurs.h
+    mobycrea.h
 
 FORMS += \
     mainwindow.ui \

@@ -19,15 +19,38 @@ public:
      *  @brief Déclaration du Constructor.
      */
 
+    ~MobyCrea();
+    /** @public @fn ~MainWindow()
+     *  @brief Déclaration du Destructor.
+     */
+
     QSerialPort serial;
-    /** @private @var  QSerialPort serial
+    /** @public @var  QSerialPort serial
      *  @brief Déclaration de l'Attribut.
      */
 
-    char MobyData;
-
     void testco();
     /** @public @fn testco()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void moteurs(int, int);
+    /** @public @fn moteurs(int, int)
+     *  @brief Déclaration de la fonction.
+     */
+
+    QString port;
+    /** @public @var  QString port
+     *  @brief Déclaration de l'Attribut.
+     */
+
+    void portChanged();
+    /** @public @fn portChange()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void commande(QString);
+    /** @public @fn commande(Qstring)
      *  @brief Déclaration de la fonction.
      */
 

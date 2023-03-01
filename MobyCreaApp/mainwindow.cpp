@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    portSearch();
+    portChange();
 }
 
 MainWindow::~MainWindow()
@@ -33,4 +35,30 @@ void MainWindow::ipChange()
 void MainWindow::ConnectButton()
 {
     mobycrea.testco();
+    mobycrea.moteurs(5,255);
+    mobycrea.moteurs(6,100);
+    QThread::msleep(2000);
+    mobycrea.moteurs(5,0);
+    mobycrea.moteurs(6,0);
+}
+
+void MainWindow::portSearch()
+{
+    ui->boxPort->clear();
+    Q_FOREACH(QSerialPortInfo port, QSerialPortInfo::availablePorts())
+    {
+        ui->boxPort->addItem(port.portName());
+    }
+}
+
+void MainWindow::portChange()
+{
+    mobycrea.port = ui->boxPort->currentText();
+    qDebug() << mobycrea.port;
+    mobycrea.portChanged();
+}
+
+void MainWindow::envoyerCommande()
+{
+    mobycrea.commande(ui->Commande->toPlainText());
 }

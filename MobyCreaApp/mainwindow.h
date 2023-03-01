@@ -10,9 +10,6 @@
 #include "bdd.h"                            /// @include "bdd.h"
 #include "mobycrea.h"                       /// @include "mobycrea.h"
 #include "butees.h"                         /// @include "butees.h"
-#include "moteurs.h"                        /// @include "moteurs.h"
-#include "moteur_horizontale.h"             /// @include "moteur_horizontale.h"
-#include "moteur_verticale.h"               /// @include "moteur_verticale.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }          /// @namespace ui
@@ -68,6 +65,21 @@ private slots:
 
     void ConnectButton();
     /** @private @fn ConnectButton()
+     *  @brief Déclaration de la Méthode.
+     */
+
+    void portChange();
+    /** @private @fn portChange()
+     *  @brief Déclaration de la Méthode.
+     */
+
+    void portSearch();
+    /** @private @fn portChange()
+     *  @brief Déclaration de la Méthode.
+     */
+
+    void envoyerCommande();
+    /** @private @fn envoyerCommande()
      *  @brief Déclaration de la Méthode.
      */
 
