@@ -77,6 +77,7 @@ void MainWindow::checkButeeBasse()
     {
     this->ButeeBasse = true;
     }
+    checkButeeBasse2();
 }
 
 void MainWindow::checkButeeBasse2()
@@ -84,7 +85,7 @@ void MainWindow::checkButeeBasse2()
     //ui->checkButeeBasse->setChecked();
     qDebug() << "check";
     int c = 0;
-        while (ui->checkButeeBasse->isChecked() & (c < 50))
+        while (ui->checkButeeBasse->isChecked() )
         {
             c++;
             if (mobycrea.getButeeBasse())
