@@ -9,7 +9,6 @@
 #include <QMainWindow>                      /// @include <QMainWindow
 #include "bdd.h"                            /// @include "bdd.h"
 #include "mobycrea.h"                       /// @include "mobycrea.h"
-#include "butees.h"                         /// @include "butees.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }          /// @namespace ui
@@ -46,11 +45,9 @@ private:
      *  @brief Déclaration de l'Attribut.
      */
 
-    Butees butee;
-    /** @private @var Butees butee
-     *  @brief Déclaration de l'Attribut.
-     */
+    bool ButeeBasse = false;
 
+    bool ButeeGauche = false;
 
 private slots:
     void RequestButton();
@@ -80,6 +77,26 @@ private slots:
 
     void envoyerCommande();
     /** @private @fn envoyerCommande()
+     *  @brief Déclaration de la Méthode.
+     */
+
+    void checkButeeBasse();
+    /** @private @fn checkButeeBasse()
+     *  @brief Déclaration de la Méthode.
+     */
+
+    void checkButeeGauche();
+    /** @private @fn checkButeeGauche()
+     *  @brief Déclaration de la Méthode.
+     */
+
+    void checkButeeBasse2();
+    /** @private @fn checkButeeBasse()
+     *  @brief Déclaration de la Méthode.
+     */
+
+    void checkButeeGauche2();
+    /** @private @fn checkButeeGauche()
      *  @brief Déclaration de la Méthode.
      */
 

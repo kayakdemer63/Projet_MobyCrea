@@ -54,6 +54,16 @@ public:
      *  @brief Déclaration de la fonction.
      */
 
+    bool getButeeBasse();
+    /** @public @fn getButeeBasse()
+     *  @brief Déclaration de la fonction.
+     */
+
+    bool getButeeGauche();
+    /** @public @fn getButeeGauche()
+     *  @brief Déclaration de la fonction.
+     */
+
 };
 
 #endif // MOBYCREA_H

@@ -105,3 +105,43 @@ void MobyCrea::commande(QString commande)
     serial.write(data);
     serial.waitForReadyRead(100);
 }
+
+bool MobyCrea::getButeeBasse()
+{
+    std::string s = "I12#";
+    char data[s.length()+1];
+    strcpy(data, s.c_str());
+    qDebug() << data;
+    serial.write(data);
+    serial.waitForReadyRead(100);
+    for (int i=0; i<1000000; i++)
+    {
+        QString r = serial.readAll();
+        if (r != "")
+        {
+            qDebug() << r;
+            return false;
+        }
+        QThread::msleep(100);
+    }
+}
+
+bool MobyCrea::getButeeGauche()
+{
+    std::string s = "I13#";
+    char data[s.length()+1];
+    strcpy(data, s.c_str());
+    qDebug() << data;
+    serial.write(data);
+    serial.waitForReadyRead(100);
+    for (int i=0; i<1000000; i++)
+    {
+        QString r = serial.readAll();
+        if (r != "")
+        {
+            qDebug() << r;
+            return false;
+        }
+        QThread::msleep(100);
+    }
+}

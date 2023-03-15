@@ -17,7 +17,7 @@ public:
      *  @brief Déclaration du Constructor.
      */
 
-    void executRequest(QString);
+    QString executRequest(QString);
     /** @public @fn executRequest(QString)
      *  @brief Déclaration de la fonction.
      */

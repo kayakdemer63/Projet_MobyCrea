@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>683</width>
-    <height>333</height>
+    <height>475</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,7 +33,7 @@
       <x>190</x>
       <y>10</y>
       <width>481</width>
-      <height>71</height>
+      <height>101</height>
      </rect>
     </property>
     <property name="plainText">
@@ -83,7 +83,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>110</y>
+      <y>290</y>
       <width>141</width>
       <height>31</height>
      </rect>
@@ -96,7 +96,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>150</y>
+      <y>330</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -109,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>110</y>
+      <y>290</y>
       <width>81</width>
       <height>31</height>
      </rect>
@@ -122,7 +122,7 @@
     <property name="geometry">
      <rect>
       <x>250</x>
-      <y>110</y>
+      <y>290</y>
       <width>421</width>
       <height>70</height>
      </rect>
@@ -132,7 +132,7 @@
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>150</y>
+      <y>330</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -145,7 +145,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>150</y>
+      <y>330</y>
       <width>72</width>
       <height>31</height>
      </rect>
@@ -155,13 +155,97 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>190</y>
+      <y>370</y>
       <width>101</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Refresh Ports</string>
+     <string>Rafraîchir Ports</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkButeeBasse">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>370</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Butée Basse</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkButeeGauche">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>370</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Butées Gauche</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkButeeBasse2">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>370</y>
+      <width>16</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkButeeGauche2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>370</y>
+      <width>16</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="sqlRep">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>120</y>
+      <width>661</width>
+      <height>141</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>90</y>
+      <width>171</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Effacer les réponses</string>
     </property>
    </widget>
   </widget>
@@ -186,12 +270,12 @@
    <slot>RequestButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>110</x>
-     <y>61</y>
+     <x>101</x>
+     <y>43</y>
     </hint>
     <hint type="destinationlabel">
-     <x>151</x>
-     <y>105</y>
+     <x>101</x>
+     <y>67</y>
     </hint>
    </hints>
   </connection>
@@ -219,7 +303,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>59</x>
-     <y>131</y>
+     <y>341</y>
     </hint>
     <hint type="destinationlabel">
      <x>59</x>
@@ -235,11 +319,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>81</x>
-     <y>196</y>
+     <y>381</y>
     </hint>
     <hint type="destinationlabel">
-     <x>82</x>
-     <y>211</y>
+     <x>81</x>
+     <y>214</y>
     </hint>
    </hints>
   </connection>
@@ -251,7 +335,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>55</x>
-     <y>226</y>
+     <y>421</y>
     </hint>
     <hint type="destinationlabel">
      <x>55</x>
@@ -267,11 +351,43 @@
    <hints>
     <hint type="sourcelabel">
      <x>211</x>
-     <y>187</y>
+     <y>381</y>
     </hint>
     <hint type="destinationlabel">
      <x>211</x>
      <y>213</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>sqlRep</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>29</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>30</x>
+     <y>161</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkButeeBasse</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>checkButeeBasse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>174</x>
+     <y>406</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>174</x>
+     <y>442</y>
     </hint>
    </hints>
   </connection>
@@ -283,5 +399,7 @@
   <slot>portChange()</slot>
   <slot>portSearch()</slot>
   <slot>envoyerCommande()</slot>
+  <slot>checkButeeBasse()</slot>
+  <slot>checkButeeGauche()</slot>
  </slots>
 </ui>
