@@ -7,6 +7,7 @@
 #define MAINWINDOW_H                        /// @def MAINWINDOW_H
 
 #include <QMainWindow>                      /// @include <QMainWindow
+#include <QAbstractButton>
 #include "bdd.h"                            /// @include "bdd.h"
 #include "mobycrea.h"                       /// @include "mobycrea.h"
 
@@ -49,6 +50,9 @@ private:
 
     bool ButeeGauche = false;
 
+signals:
+    void BoolChange(bool);
+
 private slots:
     void RequestButton();
     /** @private @fn RequestButton()
@@ -80,6 +84,7 @@ private slots:
      *  @brief Déclaration de la Méthode.
      */
 
+public slots:
     void checkButeeBasse();
     /** @private @fn checkButeeBasse()
      *  @brief Déclaration de la Méthode.

@@ -14,8 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     portSearch();
     portChange();
 
-    connect(this, SIGNAL(toggled(bool ButeeBasse)), this, SLOT(checkButeeBasse2()));
-    connect(this, SIGNAL(toggled(bool ButeeGauche)), this, SLOT(checkButeeGauche2()));
+    //connect(this, SIGNAL(BoolChange(ButeeBasse)), this, SLOT(checkButeeBasse2()));
+    //connect(this, SIGNAL(BoolChange(ButeeGauche)), this, SLOT(checkButeeGauche2()));
 }
 
 MainWindow::~MainWindow()
@@ -67,8 +67,15 @@ void MainWindow::envoyerCommande()
     mobycrea.commande(ui->Commande->toPlainText());
 }
 
+void MainWindow::BoolChange(bool boolVar)
+{
+
+}
+
 void MainWindow::checkButeeBasse()
 {
+    connect(this, SIGNAL(BoolChange(ButeeBasse)), this, SLOT(checkButeeBasse2()));
+
     if (ui->checkButeeBasse->isChecked() == false)
     {
     this->ButeeBasse = false;
@@ -77,7 +84,7 @@ void MainWindow::checkButeeBasse()
     {
     this->ButeeBasse = true;
     }
-    checkButeeBasse2();
+    //checkButeeBasse2();
 }
 
 void MainWindow::checkButeeBasse2()
