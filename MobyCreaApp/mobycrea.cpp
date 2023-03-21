@@ -114,13 +114,15 @@ bool MobyCrea::getButeeBasse()
     qDebug() << data;
     serial.write(data);
     serial.waitForReadyRead(100);
-    for (int i=0; i<1000000; i++)
+    QString r;
+    //for (int i=0; i<1000000; i++)
+    while (r=="")
     {
-        QString r = serial.readAll();
+        r = serial.readAll();
         if (r != "")
         {
             qDebug() << r;
-            return false;
+            return true;
         }
         QThread::msleep(100);
     }
@@ -134,13 +136,15 @@ bool MobyCrea::getButeeGauche()
     qDebug() << data;
     serial.write(data);
     serial.waitForReadyRead(100);
-    for (int i=0; i<1000000; i++)
+    QString r;
+    //for (int i=0; i<1000000; i++)
+    while (r=="")
     {
-        QString r = serial.readAll();
+        r = serial.readAll();
         if (r != "")
         {
             qDebug() << r;
-            return false;
+            return true;
         }
         QThread::msleep(100);
     }

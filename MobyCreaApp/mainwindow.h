@@ -46,13 +46,6 @@ private:
      *  @brief Déclaration de l'Attribut.
      */
 
-    bool ButeeBasse = false;
-
-    bool ButeeGauche = false;
-
-signals:
-    void BoolChange(bool);
-
 private slots:
     void RequestButton();
     /** @private @fn RequestButton()
@@ -91,16 +84,6 @@ public slots:
      */
 
     void checkButeeGauche();
-    /** @private @fn checkButeeGauche()
-     *  @brief Déclaration de la Méthode.
-     */
-
-    void checkButeeBasse2();
-    /** @private @fn checkButeeBasse()
-     *  @brief Déclaration de la Méthode.
-     */
-
-    void checkButeeGauche2();
     /** @private @fn checkButeeGauche()
      *  @brief Déclaration de la Méthode.
      */

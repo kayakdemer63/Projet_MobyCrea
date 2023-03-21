@@ -10,8 +10,9 @@
 #include <QSerialPortInfo>      /// @include <QSerialPortInfo
 #include <QDebug>               /// @include <QDebug
 #include <QThread>              /// @include <QThread
+#include <QObject>
 
-class MobyCrea
+class MobyCrea : public QObject
 {
 public:
     MobyCrea();

@@ -14,8 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     portSearch();
     portChange();
 
-    //connect(this, SIGNAL(BoolChange(ButeeBasse)), this, SLOT(checkButeeBasse2()));
-    //connect(this, SIGNAL(BoolChange(ButeeGauche)), this, SLOT(checkButeeGauche2()));
+    checkButeeBasse();
+    checkButeeGauche();
 }
 
 MainWindow::~MainWindow()
@@ -67,78 +67,27 @@ void MainWindow::envoyerCommande()
     mobycrea.commande(ui->Commande->toPlainText());
 }
 
-void MainWindow::BoolChange(bool boolVar)
-{
-
-}
-
 void MainWindow::checkButeeBasse()
 {
-    connect(this, SIGNAL(BoolChange(ButeeBasse)), this, SLOT(checkButeeBasse2()));
-
-    if (ui->checkButeeBasse->isChecked() == false)
+    if (mobycrea.getButeeBasse())
     {
-    this->ButeeBasse = false;
+        ui->checkButeeBasse->setCheckState(Qt::Checked);
     }
-    else if (ui->checkButeeBasse->isChecked())
+    else
     {
-    this->ButeeBasse = true;
+        ui->checkButeeBasse->setCheckState(Qt::Unchecked);
     }
-    //checkButeeBasse2();
-}
-
-void MainWindow::checkButeeBasse2()
-{
-    //ui->checkButeeBasse->setChecked();
-    qDebug() << "check";
-    int c = 0;
-        while (ui->checkButeeBasse->isChecked() )
-        {
-            c++;
-            if (mobycrea.getButeeBasse())
-            {
-                ui->checkButeeBasse2->setCheckState(Qt::Checked);
-            }
-            else
-            {
-                ui->checkButeeBasse2->setCheckState(Qt::Unchecked);
-            }
-            QThread::msleep(100);
-        }
+    QThread::msleep(100);
 }
 
 void MainWindow::checkButeeGauche()
 {
-    if (ui->checkButeeGauche->isChecked())
+    if (mobycrea.getButeeBasse())
     {
-        while (ui->checkButeeGauche->isChecked())
-        {
-            if (mobycrea.getButeeBasse())
-            {
-                ui->checkButeeGauche2->setCheckState(Qt::Checked);
-            }
-            else
-            {
-                ui->checkButeeGauche2->setCheckState(Qt::Unchecked);
-            }
-        }
+        ui->checkButeeGauche->setCheckState(Qt::Checked);
     }
-}
-
-void MainWindow::checkButeeGauche2()
-{
-    if (ui->checkButeeGauche->isChecked())
+    else
     {
-        while (ui->checkButeeGauche->isChecked())
-        {
-            if (mobycrea.getButeeBasse())
-            {
-                ui->checkButeeGauche2->setCheckState(Qt::Checked);
-            }
-            else
-            {
-                ui->checkButeeGauche2->setCheckState(Qt::Unchecked);
-            }
-        }
+        ui->checkButeeGauche->setCheckState(Qt::Unchecked);
     }
 }
