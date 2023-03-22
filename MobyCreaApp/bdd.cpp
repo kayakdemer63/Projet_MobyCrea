@@ -29,11 +29,8 @@ QString BDD::executRequest(QString request)
                 if(requete.exec(request))
                 {
                     qDebug() << "Ok - requete";
-                    // Boucle qui permet de parcourir les enregistrements renvoyés par la requête
                     QString rep;
                     while(requete.next()) {
-                        // On accède ici aux différents champs par leurs noms, il est également possible
-                        // d'y accéder par leur index : requete.value(0)
                         qDebug() << requete.value("id") << " ; " << requete.value("valeur");
                         rep.append("id : " + requete.value("id").toString() + " ; valeur : " + requete.value("valeur").toString() + "\n");
                     }
@@ -42,8 +39,6 @@ QString BDD::executRequest(QString request)
                 else
                 {
                     qDebug() << "Echec de la requête";
-                    // La méthode lastError permet d'afficher un message
-                    // plus explicite sur les causes de l'erreur
                     qDebug() << requete.lastError();
                     return "Cet attribut n'existe pas.\n";
                 }
@@ -60,11 +55,8 @@ QString BDD::executRequest(QString request)
                 if(request.left(6) == "SELECT" || request.left(6) == "select" || request.left(6) == "Select")
                 {
                     qDebug() << "Ok - requete";
-                    // Boucle qui permet de parcourir les enregistrements renvoyés par la requête
                     QString rep;
                     while(requete.next()) {
-                        // On accède ici aux différents champs par leurs noms, il est également possible
-                        // d'y accéder par leur index : requete.value(0)
                         qDebug() << requete.value("id") << " ; " << requete.value("date") << " ; " << requete.value("intensite_horizontale") << " ; " << requete.value("intensite_verticale") << " ; " << requete.value("tension_horizontale") << " ; " << requete.value("tension_vertical");
                         rep.append("id : " + requete.value("id").toString() + " ; date : " + requete.value("date").toString() + " ; intensite_horizontale : " + requete.value("intensite_horizontale").toString() + " ; intensite_verticale : " + requete.value("intensite_verticale").toString() + " ; tension_horizontale : " + requete.value("tension_horizontale").toString() + " ; tension_vertical : " + requete.value("tension_vertical").toString() + "\n");
                     }
@@ -72,8 +64,6 @@ QString BDD::executRequest(QString request)
                 }
                 else {
                     qDebug() << "Echec de la requête";
-                    // La méthode lastError permet d'afficher un message
-                    // plus explicite sur les causes de l'erreur
                     qDebug() << requete.lastError();
                     return "Cet attribut n'existe pas.\n";
                 }

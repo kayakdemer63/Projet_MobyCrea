@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(checkButeeBasse()));
     connect(timer, SIGNAL(timeout()), this, SLOT(checkButeeGauche()));
-    timer->start((1/100)*1000);
+    timer->start(100);
 
 }
 

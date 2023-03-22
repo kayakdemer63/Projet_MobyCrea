@@ -16,34 +16,19 @@ MobyCrea::MobyCrea()
 
     serial.open(QIODevice::ReadWrite);
 
-    std::string s = "H10#";
-    char data[s.length()+1];
-    strcpy(data, s.c_str());
-    //qDebug() << data;
-    serial.write(data);
-    serial.waitForReadyRead(100);
+    commande("H10#");
 }
 
 MobyCrea::~MobyCrea()
 {
-    std::string s = "L10#";
-    char data10[s.length()+1];
-    strcpy(data10, s.c_str());
-    //qDebug() << data10;
-    serial.write(data10);
-    serial.waitForReadyRead(100);
+    commande("L10#");
 
     serial.close();
 }
 
 void MobyCrea::portChanged()
 {
-    std::string s = "L10#";
-    char data10[s.length()+1];
-    strcpy(data10, s.c_str());
-    //qDebug() << data10;
-    serial.write(data10);
-    serial.waitForReadyRead(100);
+    commande("L10#");
 
     serial.close();
 
@@ -57,22 +42,13 @@ void MobyCrea::portChanged()
 
     serial.open(QIODevice::ReadWrite);
 
-    s = "H10#";
-    char data[s.length()+1];
-    strcpy(data, s.c_str());
-    //qDebug() << data;
-    serial.write(data);
-    serial.waitForReadyRead(100);
+    commande("H10#");
 }
 
 void MobyCrea::testco()
 {
-    std::string s = "?#";
-    char data[s.length()+1];
-    strcpy(data, s.c_str());
-    //qDebug() << data;
-    serial.write(data);
-    serial.waitForReadyRead(100);
+    commande("?#");
+
     for (int i=0; i<1000000; i++)
     {
         QString r = serial.readAll();
@@ -85,15 +61,8 @@ void MobyCrea::testco()
 
 void MobyCrea::moteurs(int dir, int vitesse)
 {
-    std::string dirStr = std::to_string(dir);
-    std::string vitesseStr = std::to_string(vitesse);
-
-    std::string s = "P0" + dirStr + vitesseStr + "#";
-    char data[s.length()+1];
-    strcpy(data, s.c_str());
-    //qDebug() << data;
-    serial.write(data);
-    serial.waitForReadyRead(100);
+    QString qs = "P0" + QString::number(dir) + QString::number(vitesse) + "#";
+    commande(qs);
 }
 
 void MobyCrea::commande(QString commande)
@@ -101,34 +70,28 @@ void MobyCrea::commande(QString commande)
     std::string s = commande.toStdString();
     char data[s.length()+1];
     strcpy(data, s.c_str());
-    //qDebug() << data;
+    qDebug() << data;
     serial.write(data);
     serial.waitForReadyRead(100);
 }
 
 bool MobyCrea::getButeeBasse()
 {
-    std::string s = "I12#";
-    char data[s.length()+1];
-    strcpy(data, s.c_str());
-    //qDebug() << data;
-    serial.write(data);
-    serial.waitForReadyRead(100);
-    QString r;
-    r = serial.readAll();
+    commande("I12#");
+    QString r = serial.readAll();
     if (r == "1;")
     {
-        //qDebug() << r;
+        qDebug() << r;
         return true;
     }
     else if (r == "0;")
     {
-        //qDebug() << r;
+        qDebug() << r;
         return false;
     }
     else
     {
-        //qDebug() << r;
+        qDebug() << r;
         return false;
     }
     QThread::msleep(5);
@@ -136,27 +99,21 @@ bool MobyCrea::getButeeBasse()
 
 bool MobyCrea::getButeeGauche()
 {
-    std::string s = "I13#";
-    char data[s.length()+1];
-    strcpy(data, s.c_str());
-    //qDebug() << data;
-    serial.write(data);
-    serial.waitForReadyRead(100);
-    QString r;
-    r = serial.readAll();
+    commande("I13#");
+    QString r = serial.readAll();
     if (r == "0;")
     {
-        //qDebug() << r;
+        qDebug() << r;
         return true;
     }
     else if (r == "1;")
     {
-        //qDebug() << r;
+        qDebug() << r;
         return false;
     }
     else
     {
-        //qDebug() << r;
+        qDebug() << r;
         return false;
     }
     QThread::msleep(5);
