@@ -10,23 +10,23 @@
 #include <QSerialPortInfo>      /// @include <QSerialPortInfo
 #include <QDebug>               /// @include <QDebug
 #include <QThread>              /// @include <QThread
-#include <QObject>
+#include <QObject>              /// @include <QObject
 
 class MobyCrea : public QObject
 {
 public:
     MobyCrea();
-    /** @public @fn Butees()
+    /** @public @fn MobyCrea()
      *  @brief Déclaration du Constructor.
      */
 
     ~MobyCrea();
-    /** @public @fn ~MainWindow()
+    /** @public @fn ~MobyCrea()
      *  @brief Déclaration du Destructor.
      */
 
     QSerialPort serial;
-    /** @public @var  QSerialPort serial
+    /** @public @var QSerialPort serial
      *  @brief Déclaration de l'Attribut.
      */
 
@@ -41,7 +41,7 @@ public:
      */
 
     QString port;
-    /** @public @var  QString port
+    /** @public @var QString port
      *  @brief Déclaration de l'Attribut.
      */
 
@@ -62,6 +62,26 @@ public:
 
     bool getButeeGauche();
     /** @public @fn getButeeGauche()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void Conf_8();
+    /** @public @fn Conf_8()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void Conf_O();
+    /** @public @fn Conf_O()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void Conf_U();
+    /** @public @fn Conf_U()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void Conf_n();
+    /** @public @fn Conf_n()
      *  @brief Déclaration de la fonction.
      */
 

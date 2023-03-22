@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>683</width>
-    <height>475</height>
+    <width>692</width>
+    <height>726</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QPushButton" name="RequestButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>101</width>
+      <x>190</x>
+      <y>60</y>
+      <width>151</width>
       <height>31</height>
      </rect>
     </property>
@@ -30,9 +30,9 @@
    <widget class="QPlainTextEdit" name="Request">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>10</y>
-      <width>481</width>
+      <x>10</x>
+      <y>100</y>
+      <width>331</width>
       <height>101</height>
      </rect>
     </property>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>50</y>
+      <y>60</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -53,24 +53,11 @@
      <string>172.21.28.26</string>
     </property>
    </widget>
-   <widget class="QLabel" name="labelRequete">
-    <property name="geometry">
-     <rect>
-      <x>130</x>
-      <y>10</y>
-      <width>49</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Requete :</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="labelIP">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>50</y>
+      <y>60</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -82,9 +69,9 @@
    <widget class="QPushButton" name="testCo">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>290</y>
-      <width>141</width>
+      <x>580</x>
+      <y>60</y>
+      <width>101</width>
       <height>31</height>
      </rect>
     </property>
@@ -95,8 +82,8 @@
    <widget class="QLabel" name="labelPort">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>330</y>
+      <x>470</x>
+      <y>60</y>
       <width>31</width>
       <height>31</height>
      </rect>
@@ -105,35 +92,25 @@
      <string>Port :</string>
     </property>
    </widget>
-   <widget class="QLabel" name="labelCommande">
-    <property name="geometry">
-     <rect>
-      <x>170</x>
-      <y>290</y>
-      <width>81</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Commande :</string>
-    </property>
-   </widget>
    <widget class="QPlainTextEdit" name="Commande">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>290</y>
-      <width>421</width>
-      <height>70</height>
+      <x>360</x>
+      <y>180</y>
+      <width>321</width>
+      <height>91</height>
      </rect>
+    </property>
+    <property name="plainText">
+     <string>P05255#P06255#</string>
     </property>
    </widget>
    <widget class="QPushButton" name="EnvoyerCommande">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>330</y>
-      <width>121</width>
+      <x>360</x>
+      <y>140</y>
+      <width>321</width>
       <height>31</height>
      </rect>
     </property>
@@ -144,8 +121,8 @@
    <widget class="QComboBox" name="boxPort">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>330</y>
+      <x>500</x>
+      <y>60</y>
       <width>72</width>
       <height>31</height>
      </rect>
@@ -154,8 +131,8 @@
    <widget class="QPushButton" name="searchPort">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>370</y>
+      <x>360</x>
+      <y>60</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -170,8 +147,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>370</y>
+      <x>390</x>
+      <y>100</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -182,6 +159,9 @@
     <property name="checkable">
      <bool>true</bool>
     </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
    </widget>
    <widget class="QCheckBox" name="checkButeeGauche">
     <property name="enabled">
@@ -189,8 +169,8 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>370</y>
+      <x>560</x>
+      <y>100</y>
       <width>101</width>
       <height>31</height>
      </rect>
@@ -203,12 +183,15 @@
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="sqlRep">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>120</y>
-      <width>661</width>
-      <height>141</height>
+      <y>240</y>
+      <width>331</width>
+      <height>441</height>
      </rect>
     </property>
    </widget>
@@ -216,13 +199,160 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>90</y>
-      <width>171</width>
+      <y>210</y>
+      <width>331</width>
       <height>24</height>
      </rect>
     </property>
     <property name="text">
      <string>Effacer les réponses</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="BDDlabel">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>10</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>Base de Données</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>10</y>
+      <width>20</width>
+      <height>671</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="BDDlabel_2">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>10</y>
+      <width>261</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>Pilotage du MobyCréa</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonConf_8">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>280</y>
+      <width>151</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../infini.png</normaloff>../infini.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>115</width>
+      <height>115</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonConf_O">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>280</y>
+      <width>151</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../cercle.png</normaloff>../cercle.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>100</width>
+      <height>100</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonConf_U">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>420</y>
+      <width>151</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../U.png</normaloff>../U.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>75</width>
+      <height>75</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonConf_n">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>420</y>
+      <width>151</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../n.png</normaloff>../n.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>75</width>
+      <height>75</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -231,7 +361,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>683</width>
+     <width>692</width>
      <height>21</height>
     </rect>
    </property>
@@ -247,12 +377,12 @@
    <slot>RequestButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>101</x>
-     <y>43</y>
+     <x>281</x>
+     <y>111</y>
     </hint>
     <hint type="destinationlabel">
-     <x>101</x>
-     <y>67</y>
+     <x>281</x>
+     <y>40</y>
     </hint>
    </hints>
   </connection>
@@ -264,7 +394,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>117</x>
-     <y>71</y>
+     <y>102</y>
     </hint>
     <hint type="destinationlabel">
      <x>117</x>
@@ -279,12 +409,12 @@
    <slot>ConnectButton()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>59</x>
-     <y>341</y>
+     <x>629</x>
+     <y>111</y>
     </hint>
     <hint type="destinationlabel">
-     <x>59</x>
-     <y>103</y>
+     <x>629</x>
+     <y>73</y>
     </hint>
    </hints>
   </connection>
@@ -295,12 +425,12 @@
    <slot>portChange()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>81</x>
-     <y>381</y>
+     <x>541</x>
+     <y>111</y>
     </hint>
     <hint type="destinationlabel">
-     <x>81</x>
-     <y>214</y>
+     <x>541</x>
+     <y>126</y>
     </hint>
    </hints>
   </connection>
@@ -311,12 +441,12 @@
    <slot>portSearch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>55</x>
-     <y>421</y>
+     <x>405</x>
+     <y>111</y>
     </hint>
     <hint type="destinationlabel">
-     <x>55</x>
-     <y>251</y>
+     <x>405</x>
+     <y>81</y>
     </hint>
    </hints>
   </connection>
@@ -327,12 +457,12 @@
    <slot>envoyerCommande()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>211</x>
-     <y>381</y>
+     <x>451</x>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
-     <x>211</x>
-     <y>213</y>
+     <x>451</x>
+     <y>197</y>
     </hint>
    </hints>
   </connection>
@@ -344,27 +474,75 @@
    <hints>
     <hint type="sourcelabel">
      <x>29</x>
-     <y>124</y>
+     <y>254</y>
     </hint>
     <hint type="destinationlabel">
      <x>30</x>
-     <y>161</y>
+     <y>302</y>
     </hint>
    </hints>
   </connection>
   <connection>
-   <sender>checkButeeBasse</sender>
-   <signal>stateChanged(int)</signal>
+   <sender>ButtonConf_8</sender>
+   <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>checkButeeBasse()</slot>
+   <slot>ButtonConf_8()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>174</x>
-     <y>406</y>
+     <x>439</x>
+     <y>383</y>
     </hint>
     <hint type="destinationlabel">
-     <x>174</x>
-     <y>442</y>
+     <x>439</x>
+     <y>430</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ButtonConf_O</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ButtonConf_O()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>604</x>
+     <y>404</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>604</x>
+     <y>430</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ButtonConf_U</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ButtonConf_U()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>433</x>
+     <y>547</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>433</x>
+     <y>581</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ButtonConf_n</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ButtonConf_n()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>605</x>
+     <y>549</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>605</x>
+     <y>583</y>
     </hint>
    </hints>
   </connection>
@@ -378,5 +556,9 @@
   <slot>envoyerCommande()</slot>
   <slot>checkButeeBasse()</slot>
   <slot>checkButeeGauche()</slot>
+  <slot>ButtonConf_8()</slot>
+  <slot>ButtonConf_O()</slot>
+  <slot>ButtonConf_U()</slot>
+  <slot>ButtonConf_n()</slot>
  </slots>
 </ui>

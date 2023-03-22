@@ -14,8 +14,11 @@ MainWindow::MainWindow(QWidget *parent)
     portSearch();
     portChange();
 
-    checkButeeBasse();
-    checkButeeGauche();
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(checkButeeBasse()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(checkButeeGauche()));
+    timer->start((1/100)*1000);
+
 }
 
 MainWindow::~MainWindow()
@@ -25,14 +28,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::RequestButton()
 {
-    qDebug() << ui->Request->toPlainText();
+    //qDebug() << ui->Request->toPlainText();
     QString rep = bddMoby.executRequest(ui->Request->toPlainText());
     ui->sqlRep->insertPlainText(rep);
 }
 
 void MainWindow::ipChange()
 {
-    qDebug() << ui->adresseIP->toPlainText();
+    //qDebug() << ui->adresseIP->toPlainText();
     bddMoby.newIP(ui->adresseIP->toPlainText());
 }
 
@@ -58,7 +61,7 @@ void MainWindow::portSearch()
 void MainWindow::portChange()
 {
     mobycrea.port = ui->boxPort->currentText();
-    qDebug() << mobycrea.port;
+    //qDebug() << mobycrea.port;
     mobycrea.portChanged();
 }
 
@@ -77,12 +80,12 @@ void MainWindow::checkButeeBasse()
     {
         ui->checkButeeBasse->setCheckState(Qt::Unchecked);
     }
-    QThread::msleep(100);
+    QThread::msleep(5);
 }
 
 void MainWindow::checkButeeGauche()
 {
-    if (mobycrea.getButeeBasse())
+    if (mobycrea.getButeeGauche())
     {
         ui->checkButeeGauche->setCheckState(Qt::Checked);
     }
@@ -90,4 +93,25 @@ void MainWindow::checkButeeGauche()
     {
         ui->checkButeeGauche->setCheckState(Qt::Unchecked);
     }
+    QThread::msleep(5);
+}
+
+void MainWindow::ButtonConf_8()
+{
+
+}
+
+void MainWindow::ButtonConf_O()
+{
+
+}
+
+void MainWindow::ButtonConf_U()
+{
+
+}
+
+void MainWindow::ButtonConf_n()
+{
+
 }

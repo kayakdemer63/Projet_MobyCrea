@@ -7,7 +7,7 @@
 #define MAINWINDOW_H                        /// @def MAINWINDOW_H
 
 #include <QMainWindow>                      /// @include <QMainWindow
-#include <QAbstractButton>
+#include <QAbstractButton>                  /// @include <QAbstractButton
 #include "bdd.h"                            /// @include "bdd.h"
 #include "mobycrea.h"                       /// @include "mobycrea.h"
 
@@ -77,7 +77,6 @@ private slots:
      *  @brief Déclaration de la Méthode.
      */
 
-public slots:
     void checkButeeBasse();
     /** @private @fn checkButeeBasse()
      *  @brief Déclaration de la Méthode.
@@ -86,6 +85,26 @@ public slots:
     void checkButeeGauche();
     /** @private @fn checkButeeGauche()
      *  @brief Déclaration de la Méthode.
+     */
+
+    void ButtonConf_8();
+    /** @public @fn ButtonConf_8()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void ButtonConf_O();
+    /** @public @fn ButtonConf_O()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void ButtonConf_U();
+    /** @public @fn ButtonConf_U()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void ButtonConf_n();
+    /** @public @fn ButtonConf_n()
+     *  @brief Déclaration de la fonction.
      */
 
 };
