@@ -164,7 +164,8 @@ bool MobyCrea::getButeeGauche()
 
 void MobyCrea::Conf_8()
 {
-
+    moteurs(5, 255);
+    moteurs(6, 200);
 }
 
 void MobyCrea::Conf_O()

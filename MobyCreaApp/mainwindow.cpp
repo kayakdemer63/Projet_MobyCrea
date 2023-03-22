@@ -98,20 +98,20 @@ void MainWindow::checkButeeGauche()
 
 void MainWindow::ButtonConf_8()
 {
-
+    mobycrea.Conf_8();
 }
 
 void MainWindow::ButtonConf_O()
 {
-
+    mobycrea.Conf_O();
 }
 
 void MainWindow::ButtonConf_U()
 {
-
+    mobycrea.Conf_U();
 }
 
 void MainWindow::ButtonConf_n()
 {
-
+    mobycrea.Conf_n();
 }
