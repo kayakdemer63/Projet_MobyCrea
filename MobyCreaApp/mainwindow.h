@@ -8,6 +8,7 @@
 
 #include <QMainWindow>                      /// @include <QMainWindow
 #include <QAbstractButton>                  /// @include <QAbstractButton
+#include <QtCharts>                         /// @include <QtCharts
 #include "bdd.h"                            /// @include "bdd.h"
 #include "mobycrea.h"                       /// @include "mobycrea.h"
 
@@ -44,6 +45,11 @@ private:
     MobyCrea mobycrea;
     /** @private @var MobyCrea mobycrea
      *  @brief Déclaration de l'Attribut.
+     */
+
+    void Origine();
+    /** @public @fn Origine()
+     *  @brief Déclaration du Constructor.
      */
 
 private slots:

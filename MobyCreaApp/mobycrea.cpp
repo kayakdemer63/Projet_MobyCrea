@@ -21,8 +21,8 @@ MobyCrea::MobyCrea()
 
 MobyCrea::~MobyCrea()
 {
+    commande("P050#P060#");
     commande("L10#");
-
     serial.close();
 }
 
@@ -94,7 +94,7 @@ bool MobyCrea::getButeeBasse()
         qDebug() << r;
         return false;
     }
-    QThread::msleep(5);
+    QTimer::singleShot(5, this, [this](){});
 }
 
 bool MobyCrea::getButeeGauche()
@@ -116,13 +116,22 @@ bool MobyCrea::getButeeGauche()
         qDebug() << r;
         return false;
     }
-    QThread::msleep(5);
+    QTimer::singleShot(5, this, [this](){});
+}
+
+bool getCapteurBas()
+{
+
+}
+
+bool getCapteurGauche()
+{
+
 }
 
 void MobyCrea::Conf_8()
 {
-    moteurs(5, 255);
-    moteurs(6, 200);
+
 }
 
 void MobyCrea::Conf_O()

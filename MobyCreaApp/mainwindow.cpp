@@ -14,6 +14,25 @@ MainWindow::MainWindow(QWidget *parent)
     portSearch();
     portChange();
 
+
+    QLineSeries *series = new QLineSeries();
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->createDefaultAxes();
+    chart->setTitle("Tension");
+    QChartView *chartView = new QChartView(chart);
+    ui->gridLayout->addWidget(chartView,0,0);
+
+    QLineSeries *series2 = new QLineSeries();
+    QChart *chart2 = new QChart();
+    chart2->legend()->hide();
+    chart2->addSeries(series2);
+    chart2->createDefaultAxes();
+    chart2->setTitle("Intensite");
+    QChartView *chartView2 = new QChartView(chart2);
+    ui->gridLayout_2->addWidget(chartView2,0,0);
+
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(checkButeeBasse()));
     connect(timer, SIGNAL(timeout()), this, SLOT(checkButeeGauche()));
@@ -44,9 +63,10 @@ void MainWindow::ConnectButton()
     mobycrea.testco();
     mobycrea.moteurs(5,255);
     mobycrea.moteurs(6,100);
-    QThread::msleep(2000);
-    mobycrea.moteurs(5,0);
-    mobycrea.moteurs(6,0);
+    QTimer::singleShot(2000, this, [this](){
+        mobycrea.moteurs(5,0);
+        mobycrea.moteurs(6,0);
+    });
 }
 
 void MainWindow::portSearch()
@@ -80,7 +100,7 @@ void MainWindow::checkButeeBasse()
     {
         ui->checkButeeBasse->setCheckState(Qt::Unchecked);
     }
-    QThread::msleep(5);
+    QTimer::singleShot(5, this, [this](){});
 }
 
 void MainWindow::checkButeeGauche()
@@ -93,25 +113,77 @@ void MainWindow::checkButeeGauche()
     {
         ui->checkButeeGauche->setCheckState(Qt::Unchecked);
     }
-    QThread::msleep(5);
+    QTimer::singleShot(5, this, [this](){});
 }
 
 void MainWindow::ButtonConf_8()
 {
-    mobycrea.Conf_8();
+    Origine();
+    mobycrea.moteurs(6, 225);
+    QTimer::singleShot(150, this, [this](){
+        mobycrea.moteurs(6, 0);
+        mobycrea.Conf_8();
+    });
+
 }
 
 void MainWindow::ButtonConf_O()
 {
-    mobycrea.Conf_O();
+    Origine();
+    mobycrea.moteurs(6, 225);
+    QTimer::singleShot(150, this, [this](){
+        mobycrea.moteurs(6, 0);
+        mobycrea.Conf_O();
+    });
 }
 
 void MainWindow::ButtonConf_U()
 {
-    mobycrea.Conf_U();
+    Origine();
+    mobycrea.moteurs(6, 225);
+    QTimer::singleShot(500, this, [this](){
+        mobycrea.moteurs(6, 0);
+        mobycrea.Conf_U();
+    });
 }
 
 void MainWindow::ButtonConf_n()
 {
+    Origine();
     mobycrea.Conf_n();
+}
+
+void MainWindow::Origine()
+{
+    /*mobycrea.moteurs(5, 255);
+    mobycrea.moteurs(6, 225);
+    while (mobycrea.getButeeBasse()==false || mobycrea.getButeeGauche()==false)
+    {
+        if (mobycrea.getButeeBasse())
+        {
+            mobycrea.moteurs(6, 0);
+        }
+        if (mobycrea.getButeeGauche())
+        {
+            mobycrea.moteurs(5, 0);
+        }
+        checkButeeBasse();
+        checkButeeGauche();
+    }*/
+
+    mobycrea.moteurs(5, 255);
+    mobycrea.moteurs(6, 225);
+    while (mobycrea.getCapteurBas()==false || mobycrea.getCapteurGauche()==false)
+    {
+        if (mobycrea.getButeeBasse())
+        {
+            mobycrea.moteurs(6, 0);
+        }
+        if (mobycrea.getButeeGauche())
+        {
+            mobycrea.moteurs(5, 0);
+        }
+        checkButeeBasse();
+        checkButeeGauche();
+    }
 }

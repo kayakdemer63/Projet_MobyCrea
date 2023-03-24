@@ -10,6 +10,7 @@
 #include <QSerialPortInfo>      /// @include <QSerialPortInfo
 #include <QDebug>               /// @include <QDebug
 #include <QThread>              /// @include <QThread
+#include <QTimer>               /// @include <QTimer
 #include <QObject>              /// @include <QObject
 
 class MobyCrea : public QObject
@@ -85,6 +86,15 @@ public:
      *  @brief Déclaration de la fonction.
      */
 
+    bool getCapteurBas();
+    /** @public @fn getCapteurBas()
+     *  @brief Déclaration de la fonction.
+     */
+
+    bool getCapteurGauche();
+    /** @public @fn getCapteurGauche()
+     *  @brief Déclaration de la fonction.
+     */
 };
 
 #endif // MOBYCREA_H
