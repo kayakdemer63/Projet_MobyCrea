@@ -15,19 +15,25 @@ MainWindow::MainWindow(QWidget *parent)
     portChange();
 
 
-    QLineSeries *series = new QLineSeries();
+    QLineSeries *series = bddMoby.graphTensHori();
+    QLineSeries *series2 = bddMoby.graphTensVert();
+
     QChart *chart = new QChart();
     chart->legend()->hide();
     chart->addSeries(series);
+    chart->addSeries(series2);
     chart->createDefaultAxes();
     chart->setTitle("Tension");
     QChartView *chartView = new QChartView(chart);
     ui->gridLayout->addWidget(chartView,0,0);
 
-    QLineSeries *series2 = new QLineSeries();
+    QLineSeries *series3 = bddMoby.graphIntHori();
+    QLineSeries *series4 = bddMoby.graphIntVert();
+
     QChart *chart2 = new QChart();
     chart2->legend()->hide();
-    chart2->addSeries(series2);
+    chart2->addSeries(series3);
+    chart2->addSeries(series4);
     chart2->createDefaultAxes();
     chart2->setTitle("Intensite");
     QChartView *chartView2 = new QChartView(chart2);
@@ -37,7 +43,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(timer, SIGNAL(timeout()), this, SLOT(checkButeeBasse()));
     connect(timer, SIGNAL(timeout()), this, SLOT(checkButeeGauche()));
     timer->start(100);
-
 }
 
 MainWindow::~MainWindow()
@@ -92,7 +97,8 @@ void MainWindow::envoyerCommande()
 
 void MainWindow::checkButeeBasse()
 {
-    if (mobycrea.getButeeBasse())
+    //if (mobycrea.getButeeBasse())
+    if (mobycrea.getCapteurHauteur())
     {
         ui->checkButeeBasse->setCheckState(Qt::Checked);
     }
@@ -105,7 +111,8 @@ void MainWindow::checkButeeBasse()
 
 void MainWindow::checkButeeGauche()
 {
-    if (mobycrea.getButeeGauche())
+    //if (mobycrea.getButeeGauche())
+    if (mobycrea.getCapteurLargeur())
     {
         ui->checkButeeGauche->setCheckState(Qt::Checked);
     }
@@ -173,13 +180,13 @@ void MainWindow::Origine()
 
     mobycrea.moteurs(5, 255);
     mobycrea.moteurs(6, 225);
-    while (mobycrea.getCapteurBas()==false || mobycrea.getCapteurGauche()==false)
+    while (mobycrea.getCapteurHauteur()==false || mobycrea.getCapteurLargeur()==false)
     {
-        if (mobycrea.getButeeBasse())
+        if (mobycrea.getCapteurHauteur())
         {
             mobycrea.moteurs(6, 0);
         }
-        if (mobycrea.getButeeGauche())
+        if (mobycrea.getCapteurLargeur())
         {
             mobycrea.moteurs(5, 0);
         }

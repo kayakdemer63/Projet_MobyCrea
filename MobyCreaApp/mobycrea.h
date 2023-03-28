@@ -86,15 +86,20 @@ public:
      *  @brief Déclaration de la fonction.
      */
 
-    bool getCapteurBas();
+    bool getCapteurHauteur();
     /** @public @fn getCapteurBas()
      *  @brief Déclaration de la fonction.
      */
 
-    bool getCapteurGauche();
+    bool getCapteurLargeur();
     /** @public @fn getCapteurGauche()
      *  @brief Déclaration de la fonction.
      */
+
+    int largMin;
+    int largMax;
+    int hautMin;
+    int hautMax;
 };
 
 #endif // MOBYCREA_H

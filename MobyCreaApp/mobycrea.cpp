@@ -17,12 +17,23 @@ MobyCrea::MobyCrea()
     serial.open(QIODevice::ReadWrite);
 
     commande("H10#");
+
+    largMin = 300;
+    largMax = 1;
+    hautMin = 300;
+    hautMax = 1;
 }
 
 MobyCrea::~MobyCrea()
 {
     commande("P050#P060#");
     commande("L10#");
+
+    qDebug() << "largMin = " + QString::number(largMin);
+    qDebug() << "largMax = " + QString::number(largMax);
+    qDebug() << "hautMin = " + QString::number(hautMin);
+    qDebug() << "hautMax = " + QString::number(hautMax);
+
     serial.close();
 }
 
@@ -119,14 +130,56 @@ bool MobyCrea::getButeeGauche()
     QTimer::singleShot(5, this, [this](){});
 }
 
-bool getCapteurBas()
+bool MobyCrea::getCapteurHauteur()
 {
+    commande("A01#");
+    QString r = serial.readAll();
 
+    if (r.toInt()>hautMax && r.toInt()!=0){hautMax=r.toInt();}
+    if (r.toInt()<hautMin && r.toInt()!=0){hautMin=r.toInt();}
+
+    if (r >= "180")
+    {
+        qDebug() << r;
+        return true;
+    }
+    else if (r <= "160")
+    {
+        qDebug() << r;
+        return false;
+    }
+    else
+    {
+        qDebug() << r;
+        return false;
+    }
+    QTimer::singleShot(5, this, [this](){});
 }
 
-bool getCapteurGauche()
+bool MobyCrea::getCapteurLargeur()
 {
+    commande("A00#");
+    QString r = serial.readAll();
 
+    if (r.toInt()>largMax && r.toInt()!=0){largMax=r.toInt();}
+    if (r.toInt()<largMin && r.toInt()!=0){largMin=r.toInt();}
+
+    if (r <= "180")
+    {
+        qDebug() << r;
+        return true;
+    }
+    else if (r >= "340")
+    {
+        qDebug() << r;
+        return false;
+    }
+    else
+    {
+        qDebug() << r;
+        return false;
+    }
+    QTimer::singleShot(5, this, [this](){});
 }
 
 void MobyCrea::Conf_8()

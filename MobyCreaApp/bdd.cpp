@@ -90,3 +90,111 @@ void BDD::newIP(QString ip)
 {
     bddMobycrea.setHostName(ip); // @ip serveur MySQL
 }
+
+QLineSeries* BDD::graphIntVert()
+{
+    QString requestGraph = "SELECT * FROM data_moteurs";
+    if(bddMobycrea.open())
+    {
+        qDebug() << "Ok - ouverture de la base de donnée";
+        QSqlQuery requeteGraph;
+        if(requeteGraph.exec(requestGraph))
+        {
+            qDebug() << "Ok - requete";
+            QLineSeries *rep = new QLineSeries;
+            while(requeteGraph.next())
+            {
+                qDebug() << requeteGraph.value("id") << " ; " << requeteGraph.value("intensite_verticale");
+                rep->append(requeteGraph.value("id").toReal(), requeteGraph.value("intensite_verticale").toReal());
+            }
+            return rep;
+        }
+        bddMobycrea.close(); // Fermeture de la base de données
+    }
+    else
+    {
+        qDebug() << "Echec d'ouverture de la base de donnée";
+        qDebug() << bddMobycrea.lastError();
+    }
+}
+
+QLineSeries* BDD::graphTensVert()
+{
+    QString requestGraph = "SELECT * FROM data_moteurs";
+    if(bddMobycrea.open())
+    {
+        qDebug() << "Ok - ouverture de la base de donnée";
+        QSqlQuery requeteGraph;
+        if(requeteGraph.exec(requestGraph))
+        {
+            qDebug() << "Ok - requete";
+            QLineSeries *rep = new QLineSeries;
+            while(requeteGraph.next())
+            {
+                qDebug() << requeteGraph.value("id") << " ; " << requeteGraph.value("tension_vertical");
+                rep->append(requeteGraph.value("id").toReal(), requeteGraph.value("tension_vertical").toReal());
+            }
+            return rep;
+        }
+        bddMobycrea.close(); // Fermeture de la base de données
+    }
+    else
+    {
+        qDebug() << "Echec d'ouverture de la base de donnée";
+        qDebug() << bddMobycrea.lastError();
+    }
+}
+
+QLineSeries* BDD::graphIntHori()
+{
+    QString requestGraph = "SELECT * FROM data_moteurs";
+    if(bddMobycrea.open())
+    {
+        qDebug() << "Ok - ouverture de la base de donnée";
+        QSqlQuery requeteGraph;
+        if(requeteGraph.exec(requestGraph))
+        {
+            qDebug() << "Ok - requete";
+            QLineSeries *rep = new QLineSeries;
+            while(requeteGraph.next())
+            {
+                qDebug() << requeteGraph.value("id") << " ; " << requeteGraph.value("intensite_horizontale");
+                rep->append(requeteGraph.value("id").toReal(), requeteGraph.value("intensite_horizontale").toReal());
+            }
+            return rep;
+        }
+        bddMobycrea.close(); // Fermeture de la base de données
+    }
+    else
+    {
+        qDebug() << "Echec d'ouverture de la base de donnée";
+        qDebug() << bddMobycrea.lastError();
+    }
+}
+
+QLineSeries* BDD::graphTensHori()
+{
+    QString requestGraph = "SELECT * FROM data_moteurs";
+    if(bddMobycrea.open())
+    {
+        qDebug() << "Ok - ouverture de la base de donnée";
+        QSqlQuery requeteGraph;
+        if(requeteGraph.exec(requestGraph))
+        {
+            qDebug() << "Ok - requete";
+            QLineSeries *rep = new QLineSeries;
+            while(requeteGraph.next())
+            {
+                qDebug() << requeteGraph.value("id") << " ; " << requeteGraph.value("tension_horizontale");
+                rep->append(requeteGraph.value("id").toReal(), requeteGraph.value("tension_horizontale").toReal());
+            }
+            return rep;
+        }
+        bddMobycrea.close(); // Fermeture de la base de données
+    }
+    else
+    {
+        qDebug() << "Echec d'ouverture de la base de donnée";
+        qDebug() << bddMobycrea.lastError();
+    }
+}
