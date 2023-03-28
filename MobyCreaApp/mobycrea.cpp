@@ -138,12 +138,12 @@ bool MobyCrea::getCapteurHauteur()
     if (r.toInt()>hautMax && r.toInt()!=0){hautMax=r.toInt();}
     if (r.toInt()<hautMin && r.toInt()!=0){hautMin=r.toInt();}
 
-    if (r >= "180")
+    if (r >= "170")
     {
         qDebug() << r;
         return true;
     }
-    else if (r <= "160")
+    else if (r <= "140")
     {
         qDebug() << r;
         return false;
@@ -164,12 +164,12 @@ bool MobyCrea::getCapteurLargeur()
     if (r.toInt()>largMax && r.toInt()!=0){largMax=r.toInt();}
     if (r.toInt()<largMin && r.toInt()!=0){largMin=r.toInt();}
 
-    if (r <= "180")
+    if (r <= "190")
     {
         qDebug() << r;
         return true;
     }
-    else if (r >= "340")
+    else if (r >= "260")
     {
         qDebug() << r;
         return false;

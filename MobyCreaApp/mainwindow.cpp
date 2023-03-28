@@ -194,3 +194,30 @@ void MainWindow::Origine()
         checkButeeGauche();
     }
 }
+
+void MainWindow::refreshGraph()
+{
+    QLineSeries *series = bddMoby.graphTensHori();
+    QLineSeries *series2 = bddMoby.graphTensVert();
+
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->addSeries(series2);
+    chart->createDefaultAxes();
+    chart->setTitle("Tension");
+    QChartView *chartView = new QChartView(chart);
+    ui->gridLayout->addWidget(chartView,0,0);
+
+    QLineSeries *series3 = bddMoby.graphIntHori();
+    QLineSeries *series4 = bddMoby.graphIntVert();
+
+    QChart *chart2 = new QChart();
+    chart2->legend()->hide();
+    chart2->addSeries(series3);
+    chart2->addSeries(series4);
+    chart2->createDefaultAxes();
+    chart2->setTitle("Intensite");
+    QChartView *chartView2 = new QChartView(chart2);
+    ui->gridLayout_2->addWidget(chartView2,0,0);
+}

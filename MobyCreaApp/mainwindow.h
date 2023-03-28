@@ -113,5 +113,10 @@ private slots:
      *  @brief Déclaration de la fonction.
      */
 
+    void refreshGraph();
+    /** @public @fn refreshGraph()
+     *  @brief Déclaration de la fonction.
+     */
+
 };
 #endif // MAINWINDOW_H

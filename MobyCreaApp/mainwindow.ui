@@ -393,9 +393,9 @@
     <property name="geometry">
      <rect>
       <x>700</x>
-      <y>50</y>
+      <y>90</y>
       <width>601</width>
-      <height>241</height>
+      <height>221</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout"/>
@@ -404,12 +404,25 @@
     <property name="geometry">
      <rect>
       <x>700</x>
-      <y>300</y>
+      <y>320</y>
       <width>601</width>
-      <height>241</height>
+      <height>221</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2"/>
+   </widget>
+   <widget class="QPushButton" name="RefreshGraph">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>50</y>
+      <width>141</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Actualiser Graphiques</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -602,6 +615,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>RefreshGraph</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>refreshGraph()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>822</x>
+     <y>81</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>822</x>
+     <y>104</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>RequestButton()</slot>
@@ -616,5 +645,6 @@
   <slot>ButtonConf_O()</slot>
   <slot>ButtonConf_U()</slot>
   <slot>ButtonConf_n()</slot>
+  <slot>refreshGraph()</slot>
  </slots>
 </ui>
