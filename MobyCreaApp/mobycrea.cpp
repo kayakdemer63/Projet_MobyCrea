@@ -143,7 +143,7 @@ bool MobyCrea::getCapteurHauteur()
         qDebug() << r;
         return true;
     }
-    else if (r <= "140")
+    else if (r <= "145")
     {
         qDebug() << r;
         return false;
@@ -169,7 +169,7 @@ bool MobyCrea::getCapteurLargeur()
         qDebug() << r;
         return true;
     }
-    else if (r >= "260")
+    else if (r >= "210")
     {
         qDebug() << r;
         return false;

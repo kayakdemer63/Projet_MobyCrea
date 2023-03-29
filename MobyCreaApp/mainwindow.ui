@@ -37,7 +37,7 @@
      </rect>
     </property>
     <property name="plainText">
-     <string>SELECT * FROM test</string>
+     <string>SELECT * FROM data_moteurs</string>
     </property>
    </widget>
    <widget class="QPlainTextEdit" name="adresseIP">
@@ -393,7 +393,7 @@
     <property name="geometry">
      <rect>
       <x>700</x>
-      <y>90</y>
+      <y>100</y>
       <width>601</width>
       <height>221</height>
      </rect>
@@ -415,7 +415,7 @@
     <property name="geometry">
      <rect>
       <x>700</x>
-      <y>50</y>
+      <y>60</y>
       <width>141</width>
       <height>31</height>
      </rect>

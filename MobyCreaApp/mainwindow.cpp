@@ -13,31 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     portSearch();
     portChange();
-
-
-    QLineSeries *series = bddMoby.graphTensHori();
-    QLineSeries *series2 = bddMoby.graphTensVert();
-
-    QChart *chart = new QChart();
-    chart->legend()->hide();
-    chart->addSeries(series);
-    chart->addSeries(series2);
-    chart->createDefaultAxes();
-    chart->setTitle("Tension");
-    QChartView *chartView = new QChartView(chart);
-    ui->gridLayout->addWidget(chartView,0,0);
-
-    QLineSeries *series3 = bddMoby.graphIntHori();
-    QLineSeries *series4 = bddMoby.graphIntVert();
-
-    QChart *chart2 = new QChart();
-    chart2->legend()->hide();
-    chart2->addSeries(series3);
-    chart2->addSeries(series4);
-    chart2->createDefaultAxes();
-    chart2->setTitle("Intensite");
-    QChartView *chartView2 = new QChartView(chart2);
-    ui->gridLayout_2->addWidget(chartView2,0,0);
+    refreshGraph();
 
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(checkButeeBasse()));
@@ -197,27 +173,70 @@ void MainWindow::Origine()
 
 void MainWindow::refreshGraph()
 {
-    QLineSeries *series = bddMoby.graphTensHori();
-    QLineSeries *series2 = bddMoby.graphTensVert();
+    int maxID = bddMoby.id();
+    qDebug() << maxID;
+    int idMax = maxID-(maxID%5);
+    if (maxID%5!=0){idMax+=5;}
+    qDebug() << idMax;
 
+    QMargins* margins = new QMargins(5,5,5,5);
+    QFont font;
+    font.setPixelSize(14);
+    font.setBold(true);
+
+    QXYSeries *series = bddMoby.graphTensHori();
+    QXYSeries *series2 = bddMoby.graphTensVert();
     QChart *chart = new QChart();
-    chart->legend()->hide();
+    series->setName("Moteur Horizontale");
+    series2->setName("Moteur Verticale");
+    chart->setMargins(*margins);
+    chart->legend()->setAlignment(Qt::AlignBottom);
     chart->addSeries(series);
     chart->addSeries(series2);
-    chart->createDefaultAxes();
+    QValueAxis *axisTensX = new QValueAxis;
+    axisTensX->setTitleText("ID");
+    axisTensX->setMax(idMax);                   //A mettre le multiple de 5 au dessus du dernier id.
+    axisTensX->setMin(1);
+    chart->addAxis(axisTensX, Qt::AlignBottom);
+    QValueAxis *axisTensY = new QValueAxis;
+    axisTensY->setTitleText("Tension (V)");
+    axisTensY->setMax(5);
+    axisTensY->setMin(0);
+    chart->addAxis(axisTensY, Qt::AlignLeft);
+    series->attachAxis(axisTensX);
+    series->attachAxis(axisTensY);
+    series2->attachAxis(axisTensX);
+    series2->attachAxis(axisTensY);
     chart->setTitle("Tension");
+    chart->setTitleFont(font);
     QChartView *chartView = new QChartView(chart);
     ui->gridLayout->addWidget(chartView,0,0);
 
-    QLineSeries *series3 = bddMoby.graphIntHori();
-    QLineSeries *series4 = bddMoby.graphIntVert();
-
+    QXYSeries *series3 = bddMoby.graphIntHori();
+    QXYSeries *series4 = bddMoby.graphIntVert();
     QChart *chart2 = new QChart();
-    chart2->legend()->hide();
+    series3->setName("Moteur Horizontale");
+    series4->setName("Moteur Verticale");
+    chart2->setMargins(*margins);
+    chart2->legend()->setAlignment(Qt::AlignBottom);
     chart2->addSeries(series3);
     chart2->addSeries(series4);
-    chart2->createDefaultAxes();
+    QValueAxis *axisIntX = new QValueAxis;
+    axisIntX->setTitleText("ID");
+    axisIntX->setMax(5);                   //A mettre le multiple de 5 au dessus du dernier id.
+    axisIntX->setMin(1);
+    chart2->addAxis(axisIntX, Qt::AlignBottom);
+    QValueAxis *axisIntY = new QValueAxis;
+    axisIntY->setTitleText("Intensité (I)");
+    axisIntY->setMax(1);
+    axisIntY->setMin(0);
+    chart2->addAxis(axisIntY, Qt::AlignLeft);
+    series3->attachAxis(axisIntX);
+    series3->attachAxis(axisIntY);
+    series4->attachAxis(axisIntX);
+    series4->attachAxis(axisIntY);
     chart2->setTitle("Intensite");
+    chart2->setTitleFont(font);
     QChartView *chartView2 = new QChartView(chart2);
     ui->gridLayout_2->addWidget(chartView2,0,0);
 }

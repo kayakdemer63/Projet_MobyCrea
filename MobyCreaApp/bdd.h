@@ -48,6 +48,11 @@ public:
      *  @brief Déclaration de la fonction.
      */
 
+    int id();
+    /** @public @fn id()
+     *  @brief Déclaration de la fonction.
+     */
+
 private:
     QSqlDatabase bddMobycrea;
     /** @private @var QSqlDatabase bddMobycrea

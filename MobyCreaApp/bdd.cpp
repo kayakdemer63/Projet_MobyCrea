@@ -198,3 +198,30 @@ QLineSeries* BDD::graphTensHori()
         qDebug() << bddMobycrea.lastError();
     }
 }
+
+int BDD::id()
+{
+    QString request = "SELECT MAX(id) FROM data_moteurs";
+    if(bddMobycrea.open())
+    {
+        qDebug() << "Ok - ouverture de la base de donnée";
+        QSqlQuery requete;
+        if(requete.exec(request))
+        {
+            qDebug() << "Ok - requete";
+            int rep;
+            while(requete.next())
+            {
+                qDebug() << requete.value("MAX(id)");
+                rep = requete.value("MAX(id)").toInt();
+            }
+            return rep;
+        }
+        bddMobycrea.close(); // Fermeture de la base de données
+    }
+    else
+    {
+        qDebug() << "Echec d'ouverture de la base de donnée";
+        qDebug() << bddMobycrea.lastError();
+    }
+}
