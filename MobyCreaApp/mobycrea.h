@@ -26,8 +26,8 @@ public:
      *  @brief Déclaration du Destructor.
      */
 
-    QSerialPort serial;
-    /** @public @var QSerialPort serial
+    QString port;
+    /** @public @var QString port
      *  @brief Déclaration de l'Attribut.
      */
 
@@ -39,11 +39,6 @@ public:
     void moteurs(int, int);
     /** @public @fn moteurs(int, int)
      *  @brief Déclaration de la fonction.
-     */
-
-    QString port;
-    /** @public @var QString port
-     *  @brief Déclaration de l'Attribut.
      */
 
     void portChanged();
@@ -96,10 +91,32 @@ public:
      *  @brief Déclaration de la fonction.
      */
 
+private:
+    QSerialPort serial;
+    /** @public @var QSerialPort serial
+     *  @brief Déclaration de l'Attribut.
+     */
+
     int largMin;
+    /** @private @var largMin
+     *  @brief Déclaration de l'Attribut.
+     */
+
     int largMax;
+    /** @private @var largMax
+     *  @brief Déclaration de l'Attribut.
+     */
+
     int hautMin;
+    /** @private @var hautMin
+     *  @brief Déclaration de l'Attribut.
+     */
+
     int hautMax;
+    /** @private @var hautMax
+     *  @brief Déclaration de l'Attribut.
+     */
+
 };
 
 #endif // MOBYCREA_H

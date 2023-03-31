@@ -153,7 +153,7 @@ bool MobyCrea::getCapteurHauteur()
         qDebug() << r;
         return false;
     }
-    QTimer::singleShot(5, this, [this](){});
+    QTimer::singleShot(50, this, [this](){});
 }
 
 bool MobyCrea::getCapteurLargeur()
@@ -179,7 +179,7 @@ bool MobyCrea::getCapteurLargeur()
         qDebug() << r;
         return false;
     }
-    QTimer::singleShot(5, this, [this](){});
+    QTimer::singleShot(50, this, [this](){});
 }
 
 void MobyCrea::Conf_8()

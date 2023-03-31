@@ -48,14 +48,24 @@ public:
      *  @brief Déclaration de la fonction.
      */
 
-    int id();
-    /** @public @fn id()
+    void addData(double, double, double, double);
+    /** @public @fn addData()
+     *  @brief Déclaration de la fonction.
+     */
+
+    void supprData(int);
+    /** @public @fn addData()
      *  @brief Déclaration de la fonction.
      */
 
 private:
     QSqlDatabase bddMobycrea;
     /** @private @var QSqlDatabase bddMobycrea
+     *  @brief Déclaration de l'Attribut.
+     */
+
+    QDateTime dateTime;
+    /** @private @var DATE dateTime
      *  @brief Déclaration de l'Attribut.
      */
 

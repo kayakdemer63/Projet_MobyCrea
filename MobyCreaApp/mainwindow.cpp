@@ -173,12 +173,6 @@ void MainWindow::Origine()
 
 void MainWindow::refreshGraph()
 {
-    int maxID = bddMoby.id();
-    qDebug() << maxID;
-    int idMax = maxID-(maxID%5);
-    if (maxID%5!=0){idMax+=5;}
-    qDebug() << idMax;
-
     QMargins* margins = new QMargins(5,5,5,5);
     QFont font;
     font.setPixelSize(14);
@@ -190,13 +184,13 @@ void MainWindow::refreshGraph()
     series->setName("Moteur Horizontale");
     series2->setName("Moteur Verticale");
     chart->setMargins(*margins);
-    chart->legend()->setAlignment(Qt::AlignBottom);
+    chart->legend()->setAlignment(Qt::AlignTop);
     chart->addSeries(series);
     chart->addSeries(series2);
-    QValueAxis *axisTensX = new QValueAxis;
-    axisTensX->setTitleText("ID");
-    axisTensX->setMax(idMax);                   //A mettre le multiple de 5 au dessus du dernier id.
-    axisTensX->setMin(1);
+    QDateTimeAxis *axisTensX = new QDateTimeAxis;
+    axisTensX->setTickCount(8);
+    axisTensX->setFormat("dd-MM-yyyy_hh:mm::ss");
+    axisTensX->setTitleText("Date et heure");
     chart->addAxis(axisTensX, Qt::AlignBottom);
     QValueAxis *axisTensY = new QValueAxis;
     axisTensY->setTitleText("Tension (V)");
@@ -218,13 +212,13 @@ void MainWindow::refreshGraph()
     series3->setName("Moteur Horizontale");
     series4->setName("Moteur Verticale");
     chart2->setMargins(*margins);
-    chart2->legend()->setAlignment(Qt::AlignBottom);
+    chart2->legend()->setAlignment(Qt::AlignTop);
     chart2->addSeries(series3);
     chart2->addSeries(series4);
-    QValueAxis *axisIntX = new QValueAxis;
-    axisIntX->setTitleText("ID");
-    axisIntX->setMax(5);                   //A mettre le multiple de 5 au dessus du dernier id.
-    axisIntX->setMin(1);
+    QDateTimeAxis *axisIntX = new QDateTimeAxis;
+    axisIntX->setTickCount(8);
+    axisIntX->setFormat("dd-MM-yyyy_hh:mm::ss");
+    axisIntX->setTitleText("Date et heure");
     chart2->addAxis(axisIntX, Qt::AlignBottom);
     QValueAxis *axisIntY = new QValueAxis;
     axisIntY->setTitleText("Intensité (I)");

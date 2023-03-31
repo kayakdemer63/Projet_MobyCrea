@@ -57,8 +57,8 @@ QString BDD::executRequest(QString request)
                     qDebug() << "Ok - requete";
                     QString rep;
                     while(requete.next()) {
-                        qDebug() << requete.value("id") << " ; " << requete.value("date") << " ; " << requete.value("intensite_horizontale") << " ; " << requete.value("intensite_verticale") << " ; " << requete.value("tension_horizontale") << " ; " << requete.value("tension_vertical");
-                        rep.append("id : " + requete.value("id").toString() + " ; date : " + requete.value("date").toString() + " ; intensite_horizontale : " + requete.value("intensite_horizontale").toString() + " ; intensite_verticale : " + requete.value("intensite_verticale").toString() + " ; tension_horizontale : " + requete.value("tension_horizontale").toString() + " ; tension_vertical : " + requete.value("tension_vertical").toString() + "\n");
+                        qDebug() << requete.value("id") << " ; " << requete.value("date_heure") << " ; " << requete.value("intensite_horizontale") << " ; " << requete.value("intensite_verticale") << " ; " << requete.value("tension_horizontale") << " ; " << requete.value("tension_vertical");
+                        rep.append("id : " + requete.value("id").toString() + " ; date et heure : " + requete.value("date_heure").toDateTime().toString("yyyy-MM-dd hh:mm:ss") + " ; intensite_horizontale : " + requete.value("intensite_horizontale").toString() + " ; intensite_verticale : " + requete.value("intensite_verticale").toString() + " ; tension_horizontale : " + requete.value("tension_horizontale").toString() + " ; tension_vertical : " + requete.value("tension_vertical").toString() + "\n\n");
                     }
                     return rep;
                 }
@@ -104,8 +104,8 @@ QLineSeries* BDD::graphIntVert()
             QLineSeries *rep = new QLineSeries;
             while(requeteGraph.next())
             {
-                qDebug() << requeteGraph.value("id") << " ; " << requeteGraph.value("intensite_verticale");
-                rep->append(requeteGraph.value("id").toReal(), requeteGraph.value("intensite_verticale").toReal());
+                qDebug() << requeteGraph.value("date_heure") << " ; " << requeteGraph.value("intensite_verticale");
+                rep->append(requeteGraph.value("date_heure").toDateTime().toMSecsSinceEpoch(), requeteGraph.value("intensite_verticale").toReal());
             }
             return rep;
         }
@@ -131,8 +131,8 @@ QLineSeries* BDD::graphTensVert()
             QLineSeries *rep = new QLineSeries;
             while(requeteGraph.next())
             {
-                qDebug() << requeteGraph.value("id") << " ; " << requeteGraph.value("tension_vertical");
-                rep->append(requeteGraph.value("id").toReal(), requeteGraph.value("tension_vertical").toReal());
+                qDebug() << requeteGraph.value("date_heure") << " ; " << requeteGraph.value("tension_vertical");
+                rep->append(requeteGraph.value("date_heure").toDateTime().toMSecsSinceEpoch(), requeteGraph.value("tension_vertical").toReal());
             }
             return rep;
         }
@@ -158,8 +158,9 @@ QLineSeries* BDD::graphIntHori()
             QLineSeries *rep = new QLineSeries;
             while(requeteGraph.next())
             {
-                qDebug() << requeteGraph.value("id") << " ; " << requeteGraph.value("intensite_horizontale");
-                rep->append(requeteGraph.value("id").toReal(), requeteGraph.value("intensite_horizontale").toReal());
+                //qDebug() << requeteGraph.value("date_heure") << " ; " << requeteGraph.value("intensite_horizontale");
+                qDebug() << requeteGraph.value("date_heure") << " ; " << requeteGraph.value("intensite_horizontale");
+                rep->append(requeteGraph.value("date_heure").toDateTime().toMSecsSinceEpoch(), requeteGraph.value("intensite_horizontale").toReal());
             }
             return rep;
         }
@@ -185,8 +186,8 @@ QLineSeries* BDD::graphTensHori()
             QLineSeries *rep = new QLineSeries;
             while(requeteGraph.next())
             {
-                qDebug() << requeteGraph.value("id") << " ; " << requeteGraph.value("tension_horizontale");
-                rep->append(requeteGraph.value("id").toReal(), requeteGraph.value("tension_horizontale").toReal());
+                qDebug() << requeteGraph.value("date_heure") << " ; " << requeteGraph.value("tension_horizontale");
+                rep->append(requeteGraph.value("date_heure").toDateTime().toMSecsSinceEpoch(), requeteGraph.value("tension_horizontale").toReal());
             }
             return rep;
         }
@@ -199,9 +200,10 @@ QLineSeries* BDD::graphTensHori()
     }
 }
 
-int BDD::id()
+void BDD::addData(double tensVert, double intVert, double tensHori, double intHori)
 {
-    QString request = "SELECT MAX(id) FROM data_moteurs";
+    QString date = dateTime.currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+    QString request = "INSERT INTO data_moteurs(tension_vertical, intensite_verticale, tension_horizontale, intensite_horizontale, date_heure) VALUES (" + QString::number(tensVert) + "," + QString::number(intVert) + "," + QString::number(tensHori) + "," + QString::number(intHori) + ",'" + date + "')";
     if(bddMobycrea.open())
     {
         qDebug() << "Ok - ouverture de la base de donnée";
@@ -209,13 +211,34 @@ int BDD::id()
         if(requete.exec(request))
         {
             qDebug() << "Ok - requete";
-            int rep;
-            while(requete.next())
-            {
-                qDebug() << requete.value("MAX(id)");
-                rep = requete.value("MAX(id)").toInt();
+            while(requete.next()) {
+                qDebug() << requete.value("id") << " ; " << requete.value("date_heure") << " ; " << requete.value("intensite_horizontale") << " ; " << requete.value("intensite_verticale") << " ; " << requete.value("tension_horizontale") << " ; " << requete.value("tension_vertical");
             }
-            return rep;
+            return;
+        }
+        bddMobycrea.close(); // Fermeture de la base de données
+    }
+    else
+    {
+        qDebug() << "Echec d'ouverture de la base de donnée";
+        qDebug() << bddMobycrea.lastError();
+    }
+}
+
+void BDD::supprData(int id)
+{
+    QString request = "DELETE FROM data_moteurs WHERE data_moteurs.id = " + QString::number(id) ;
+    if(bddMobycrea.open())
+    {
+        qDebug() << "Ok - ouverture de la base de donnée";
+        QSqlQuery requete;
+        if(requete.exec(request))
+        {
+            qDebug() << "Ok - requete";
+            while(requete.next()) {
+                qDebug() << requete.value("id") << " ; " << requete.value("date_heure") << " ; " << requete.value("intensite_horizontale") << " ; " << requete.value("intensite_verticale") << " ; " << requete.value("tension_horizontale") << " ; " << requete.value("tension_vertical");
+            }
+            return;
         }
         bddMobycrea.close(); // Fermeture de la base de données
     }
