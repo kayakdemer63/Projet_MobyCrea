@@ -8,6 +8,8 @@
 
 #include <QMainWindow>                      /// @include <QMainWindow
 #include <QAbstractButton>                  /// @include <QAbstractButton
+#include <sstream>                          /// @include <sstream
+#include <algorithm>                        /// @include <algorithm
 #include <QtCharts>                         /// @include <QtCharts
 #include "bdd.h"                            /// @include "bdd.h"
 #include "mobycrea.h"                       /// @include "mobycrea.h"
@@ -51,6 +53,10 @@ private:
     /** @public @fn Origine()
      *  @brief Déclaration du Constructor.
      */
+
+    void onMouseMovePlotArea(QMouseEvent*);
+
+//    void trackLineLabel(XYChart*, int );
 
 private slots:
     void RequestButton();

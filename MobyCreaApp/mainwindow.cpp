@@ -233,4 +233,71 @@ void MainWindow::refreshGraph()
     chart2->setTitleFont(font);
     QChartView *chartView2 = new QChartView(chart2);
     ui->gridLayout_2->addWidget(chartView2,0,0);
+
+    connect(chartView, SIGNAL(mouseMovePlotArea(QMouseEvent*)),SLOT(onMouseMovePlotArea(QMouseEvent*)));
+    connect(chartView2, SIGNAL(mouseMovePlotArea(QMouseEvent*)),SLOT(onMouseMovePlotArea(QMouseEvent*)));
 }
+
+void MainWindow::onMouseMovePlotArea(QMouseEvent *)
+{/*
+    trackLineLabel((XYChart *)m_ChartViewer->getChart(), m_ChartViewer->getPlotAreaMouseX());
+    m_ChartViewer->updateDisplay();
+
+    // Hide the track cursor when the mouse leaves the plot area
+    m_ChartViewer->removeDynamicLayer("mouseLeavePlotArea");*/
+}
+
+/*void MainWindow::trackLineLabel(XYChart *c, int mouseX)
+{
+    DrawArea *d = c->initDynamicLayer();
+
+    PlotArea *plotArea = c->getPlotArea();
+
+    double xValue = c->getNearestXValue(mouseX);
+    int xCoor = c->getXCoor(xValue);
+
+    d->vline(plotArea->getTopY(), plotArea->getBottomY(), xCoor,
+        d->dashLineColor(0x000000, 0x0101));
+
+    std::ostringstream xlabel;
+    xlabel << "<*font,bgColor=000000*> " << c->xAxis()->getFormattedLabel(xValue, "mmm dd, yyyy")
+        << " <*//*font*>";   //
+    TTFText *t = d->text(xlabel.str().c_str(), "Arial Bold", 8);
+
+    int xLabelPos = (std::max)(0, (std::min)(xCoor - t->getWidth() / 2, c->getWidth() - t->getWidth()));
+    t->draw(xLabelPos, plotArea->getBottomY() + 6, 0xffffff);
+    t->destroy();
+
+    for (int i = 0; i < c->getLayerCount(); ++i) {
+        Layer *layer = c->getLayerByZ(i);
+
+        int xIndex = layer->getXIndexOf(xValue);
+
+        for (int j = 0; j < layer->getDataSetCount(); ++j)
+        {
+            DataSet *dataSet = layer->getDataSetByZ(j);
+            const char *dataSetName = dataSet->getDataName();
+
+            int color = dataSet->getDataColor();
+            int yCoor = c->getYCoor(dataSet->getPosition(xIndex), dataSet->getUseYAxis());
+
+            if ((yCoor >= plotArea->getTopY()) && (yCoor <= plotArea->getBottomY()) && (color !=
+                (int)Chart::Transparent) && dataSetName && *dataSetName)
+            {
+                d->circle(xCoor, yCoor, 4, 4, color, color);
+
+                std::ostringstream label;
+                label << "<*font,bgColor=" << std::hex << color << "*> "
+                    << c->formatValue(dataSet->getValue(xIndex), "{value|P4}") << " <*font*>";
+                t = d->text(label.str().c_str(), "Arial Bold", 8);
+
+                if (xCoor <= (plotArea->getLeftX() + plotArea->getRightX()) / 2)
+                    t->draw(xCoor + 5, yCoor, 0xffffff, Chart::Left);
+                else
+                    t->draw(xCoor - 5, yCoor, 0xffffff, Chart::Right);
+
+                t->destroy();
+            }
+        }
+    }
+}*/
