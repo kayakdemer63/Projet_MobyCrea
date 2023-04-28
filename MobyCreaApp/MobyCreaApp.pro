@@ -30,4 +30,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     class_diag.qmodel \
-    deployment_diag.qmodel
+    deployment_diag.qmodel \
+    use_case_diag.qmodel

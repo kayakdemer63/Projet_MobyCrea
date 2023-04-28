@@ -11,8 +11,10 @@
 #include <sstream>                          /// @include <sstream
 #include <algorithm>                        /// @include <algorithm
 #include <QtCharts>                         /// @include <QtCharts
+#include <QThread>                          /// @include <QThread
 #include "bdd.h"                            /// @include "bdd.h"
 #include "mobycrea.h"                       /// @include "mobycrea.h"
+#include "qchartviewer.h"                   /// @include "qchartviewer.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }          /// @namespace ui
@@ -51,13 +53,14 @@ private:
 
     void Origine();
     /** @public @fn Origine()
-     *  @brief Déclaration du Constructor.
+     *  @brief Déclaration de l'Attribut.
      */
 
+/*
     void onMouseMovePlotArea(QMouseEvent*);
 
-//    void trackLineLabel(XYChart*, int );
-
+    void trackLineLabel(QChart*, int );
+*/
 private slots:
     void RequestButton();
     /** @private @fn RequestButton()

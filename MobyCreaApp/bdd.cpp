@@ -8,8 +8,6 @@
 BDD::BDD()
 {
     bddMobycrea = QSqlDatabase::addDatabase("QMYSQL");
-
-    // Définition des paramètres de connexion à la base de données
     bddMobycrea.setHostName("172.21.28.26"); // @ip serveur MySQL
     bddMobycrea.setUserName("mobycrea"); // Nom utilisateur
     bddMobycrea.setPassword("lafayette"); // Mot de passe
