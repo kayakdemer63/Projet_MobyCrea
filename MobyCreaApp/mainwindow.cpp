@@ -15,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     portSearch();
     portChange();
-    //QChartView *chartView = new QChartView();
     refreshGraph();
 
     QTimer *timer = new QTimer(this);
@@ -26,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    //bddMoby.supprData("*");
     QProcess::execute("taskkill /im UwAmp.exe /f");
     delete ui;
 }

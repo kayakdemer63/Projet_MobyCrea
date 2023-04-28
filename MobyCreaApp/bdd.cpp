@@ -223,26 +223,50 @@ void BDD::addData(double tensVert, double intVert, double tensHori, double intHo
     }
 }
 
-void BDD::supprData(int id)
+void BDD::supprData(QString id)
 {
-    QString request = "DELETE FROM data_moteurs WHERE data_moteurs.id = " + QString::number(id) ;
-    if(bddMobycrea.open())
+    if (id == "*")
     {
-        qDebug() << "Ok - ouverture de la base de donnée";
-        QSqlQuery requete;
-        if(requete.exec(request))
+        QString request = "DELETE FROM data_moteurs WHERE 1" ;
+        if(bddMobycrea.open())
         {
-            qDebug() << "Ok - requete";
-            while(requete.next()) {
-                qDebug() << requete.value("id") << " ; " << requete.value("date_heure") << " ; " << requete.value("intensite_horizontale") << " ; " << requete.value("intensite_verticale") << " ; " << requete.value("tension_horizontale") << " ; " << requete.value("tension_vertical");
+            qDebug() << "Ok - ouverture de la base de donnée";
+            QSqlQuery requete;
+            if(requete.exec(request))
+            {
+                qDebug() << "Ok - requete";
+                while(requete.next()) {qDebug() << "bdd vidée";}
+                return;
             }
-            return;
+            bddMobycrea.close(); // Fermeture de la base de données
         }
-        bddMobycrea.close(); // Fermeture de la base de données
+        else
+        {
+            qDebug() << "Echec d'ouverture de la base de donnée";
+            qDebug() << bddMobycrea.lastError();
+        }
     }
     else
     {
-        qDebug() << "Echec d'ouverture de la base de donnée";
-        qDebug() << bddMobycrea.lastError();
+        QString request = "DELETE FROM data_moteurs WHERE data_moteurs.id = " + id ;
+        if(bddMobycrea.open())
+        {
+            qDebug() << "Ok - ouverture de la base de donnée";
+            QSqlQuery requete;
+            if(requete.exec(request))
+            {
+                qDebug() << "Ok - requete";
+                while(requete.next()) {
+                    qDebug() << requete.value("id") << " ; " << requete.value("date_heure") << " ; " << requete.value("intensite_horizontale") << " ; " << requete.value("intensite_verticale") << " ; " << requete.value("tension_horizontale") << " ; " << requete.value("tension_vertical");
+                }
+                return;
+            }
+            bddMobycrea.close(); // Fermeture de la base de données
+        }
+        else
+        {
+            qDebug() << "Echec d'ouverture de la base de donnée";
+            qDebug() << bddMobycrea.lastError();
+        }
     }
 }

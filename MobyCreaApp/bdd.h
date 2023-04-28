@@ -53,7 +53,7 @@ public:
      *  @brief Déclaration de la fonction.
      */
 
-    void supprData(int);
+    void supprData(QString);
     /** @public @fn addData()
      *  @brief Déclaration de la fonction.
      */
