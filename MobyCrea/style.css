@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    color: whitesmoke;
+    margin: 0%;
+    background-color: rgb(48, 45, 45);
+    text-decoration: none;
+  }
+
+
+  h3 {
+    text-align: center;
+    margin: auto;
+    font-size: 3.5rem;
+    font-family: arial;
+    font-weight: 900;
+    color: transparent;
+    text-decoration: none;
+    /* Petit losange interieur de la police */
+    background: linear-gradient(45deg, rgb(48, 45, 45) 30%, transparent 30%, transparent 70%, rgb(48, 45, 45) 70%), linear-gradient(-45deg, rgb(48, 45, 45) 30%, transparent 30%, transparent 70%, rgb(48, 45, 45) 70%), linear-gradient(90deg, rgb(48, 45, 45) 30%, transparent 30%, transparent 70%, rgb(48, 45, 45) 70%)rgb(48, 45, 45);
+    background-size: 15px 15px, 15px 15px, 1px 1px;
+    background-position: 0 0, 0 0, 0 0;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 4px deepskyblue;
+    filter: drop-shadow(0 0 1px lightblue)drop-shadow(0 0 1px powderblue)drop-shadow(0 0 1px powderblue)drop-shadow(0 0 1px black)drop-shadow(0 0 1px lightskyblue)drop-shadow(0 0 1px skyblue)drop-shadow(0 0 1px skyblue)drop-shadow(0 0 1px royalblue)drop-shadow(0 0 2px royalblue);
+    animation: bg-shift 1.125s ease-in-out infinite alternate-reverse, swing 2.25s ease-in-out infinite;
+  }
+  
+  h3::before {
+    content: "MobyCrea";
+    position: absolute;
+    -webkit-text-stroke: 2px black;
+  }
+  
+  @keyframes bg-shift {
+    from {
+      background-position: 0 48px;
+    }
+  }
+  
+  @keyframes bg-shift2 {
+    0% {
+      background-position: 0 48px;
+    }
+  
+    50% {
+  
+      background-position: 0 -30px;
+  
+    }
+  
+    100% {
+      background-position: 0 48px;
+    }
+  }
+  
+  @keyframes swing {
+    0% {
+      transform-origin: top;
+      transform: perspective(550px)rotatex(55deg);
+    }
+  
+    50% {
+      transform: perspective(550px)rotatex(-55deg);
+    }
+  
+    100% {
+      transform-origin: top;
+      transform: perspective(550px)rotatex(55deg);
+  
+    }
+  }
+  
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 12px;
+  }
+  
+  
+  main {
+    padding-bottom: 20;
+  }
+
+  div {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  
+  
+  footer {
+    background-color:#546a79;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    text-decoration: underline overline whitesmoke;
+  }
+  
+  footer p {
+    margin: auto; 
+    text-align: center;
+  }
+  
+
+  canvas {
+    border: 2px groove deepskyblue;
+    border-radius: 15px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-bottom: 20px;
+    margin-right: 20%;
+}
+
+#courbes {
+  background-color: white;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+h2 {
+  text-align: center;
+}
+
+iframe {
+  width: 99%;
+  height: 712px;
+  border-color: deepskyblue;
+}
