@@ -6,7 +6,6 @@
     <head>
         <link rel="stylesheet" href="style.css" type="text/css">
         <meta charset="UTF-8"/>
-        <meta http-equiv="refresh" content="1">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
@@ -52,10 +51,10 @@
           $ten_h = json_encode($ten_h);
           $labels = json_encode($labels);
         ?> 
-          <h4>Tensions en temps réel des moteurs</h4>
+          <h4>Tensions figées des moteurs</h4>
     <canvas id="tension"></canvas>
           <hr style='border-color: deepskyblue;'>
-          <h4>Intensités en temps réel des moteurs</h4>
+          <h4>Intensités figées des moteurs</h4>
     <canvas id="intensite"></canvas>
     
     <script>

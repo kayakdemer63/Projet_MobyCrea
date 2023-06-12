@@ -2,7 +2,7 @@
 <html lang="fr-FR">
 
   <head>
-    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="styleF.css" type="text/css">
     <meta charset="UTF-8"/>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>MobyCrea</title>
@@ -16,13 +16,13 @@
     <main>
       <nav>
         <ul>
-          <li><a class="active" href="index.php">Courbes TempsRéel</a></li>
-          <li><a href="fixe.php">Courbes figées</a></li>
+          <li><a href="index.php">Courbes Temps Réel</a></li>
+          <li><a class="active" href="fixe.php">Courbes figées</a></li>
         </ul>
       </nav>
       
       <div>
-        <iframe src="graphique.php"></iframe>
+        <iframe src="graphiqueFixe.php"></iframe>
       </div>
     </main>
 

@@ -22,7 +22,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-stroke: 4px deepskyblue;
     filter: drop-shadow(0 0 1px lightblue)drop-shadow(0 0 1px powderblue)drop-shadow(0 0 1px powderblue)drop-shadow(0 0 1px black)drop-shadow(0 0 1px lightskyblue)drop-shadow(0 0 1px skyblue)drop-shadow(0 0 1px skyblue)drop-shadow(0 0 1px royalblue)drop-shadow(0 0 2px royalblue);
-    animation: bg-shift 1.125s ease-in-out infinite alternate-reverse, swing 2.25s ease-in-out infinite;
   }
   
   h3::before {
